@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Shutter 3.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>3E8A269891B9D2126C068522848A48B223ECCA83</string>
+				<key>dateExpires</key>
+				<string>01/05/2019</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>JC7UGY5QLV.dumar022</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>JC7UGY5QLV</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>JC7UGY5QLV.dumar022</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Shutter 3.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>31620dc3-f95b-42a5-9219-edcf60efd131</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: dumar022</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>JC7UGY5QLV</string>
+				<key>name</key>
+				<string>Mario Kardum</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
