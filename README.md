@@ -14,6 +14,9 @@ New versions of SteemShutter have Meme Maker included. Simply add a photo from y
 ### Filters
 When you make a photo, you can edit them using CG Filters. I you can add a filter over a filter and get completely new effects. Save your photo to your iPhone's photo library. 
 
+### Cropping
+Now you can crop your images by pinch gesture using two fingers. It is only possible for photos taken with SteemShutter.
+
 SteemShutter by @dumar022
 Button design: @svarozich
 Steemit.com
