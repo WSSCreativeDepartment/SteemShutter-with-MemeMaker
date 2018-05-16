@@ -338,7 +338,7 @@
                                 <rect key="frame" x="0.0" y="671.33333333333337" width="414" height="64.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1F-Vq-Qv3">
-                                        <rect key="frame" x="8" y="14" width="54" height="37"/>
+                                        <rect key="frame" x="8" y="13.666666666666629" width="54" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="8E1-Rg-yip"/>
                                             <constraint firstAttribute="width" constant="54" id="nMM-g3-oRe"/>
@@ -353,13 +353,13 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz8-7A-zWg">
-                                        <rect key="frame" x="270" y="14" width="136" height="37"/>
+                                        <rect key="frame" x="260" y="13.666666666666629" width="146" height="37"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="136" id="Ahg-qx-Sz0"/>
+                                            <constraint firstAttribute="width" constant="146" id="Ahg-qx-Sz0"/>
                                             <constraint firstAttribute="height" constant="37" id="Ow7-Ft-aNa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="Choose the image">
+                                        <state key="normal" title="Change the image">
                                             <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -404,7 +404,7 @@
                                 </constraints>
                             </imageView>
                             <pickerView alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTJ-SM-KHq">
-                                <rect key="frame" x="47" y="436" width="183" height="216"/>
+                                <rect key="frame" x="47" y="435.66666666666674" width="183" height="216"/>
                                 <color key="backgroundColor" red="0.63985820520000003" green="0.83282374020000005" blue="0.94901031260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="183" id="3ns-S2-Cbu"/>
@@ -414,7 +414,7 @@
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8m-bv-Ylh">
-                                <rect key="frame" x="131" y="350" width="152" height="37"/>
+                                <rect key="frame" x="131" y="349.66666666666669" width="152" height="37"/>
                                 <color key="backgroundColor" red="0.65685669441871675" green="0.8573111186026392" blue="0.97974476691472079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="VOM-cV-Ssb"/>
@@ -781,11 +781,27 @@
                                             <action selector="backButtonAction:" destination="XBB-Cr-cPh" eventType="touchUpInside" id="d6X-Md-Y5K"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u6-xr-SM3">
+                                        <rect key="frame" x="189.66666666666666" y="6" width="35" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="Srp-oQ-rfT"/>
+                                            <constraint firstAttribute="width" constant="35" id="bTd-yS-dMK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Crop">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cropAction:" destination="XBB-Cr-cPh" eventType="touchUpInside" id="4Vz-dU-va2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.63985820520000003" green="0.83282374020000005" blue="0.94901031260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="MRf-yv-A0K" secondAttribute="bottom" id="1pO-cD-bwm"/>
                                     <constraint firstItem="XCX-uv-POQ" firstAttribute="top" secondItem="rj5-pz-Usp" secondAttribute="top" constant="2" id="34x-nF-1uC"/>
+                                    <constraint firstItem="3u6-xr-SM3" firstAttribute="centerX" secondItem="rj5-pz-Usp" secondAttribute="centerX" id="5U3-Ke-Xw9"/>
+                                    <constraint firstItem="3u6-xr-SM3" firstAttribute="centerY" secondItem="rj5-pz-Usp" secondAttribute="centerY" id="BrR-em-eee"/>
                                     <constraint firstAttribute="trailing" secondItem="XCX-uv-POQ" secondAttribute="trailing" constant="11" id="Nd4-Zp-Me5"/>
                                     <constraint firstItem="MRf-yv-A0K" firstAttribute="top" secondItem="rj5-pz-Usp" secondAttribute="top" constant="1" id="jr7-EL-Qzn"/>
                                     <constraint firstItem="MRf-yv-A0K" firstAttribute="leading" secondItem="rj5-pz-Usp" secondAttribute="leading" constant="8" id="vuu-ub-qCS"/>
@@ -912,17 +928,155 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="MRf-yv-A0K" id="Vq3-dQ-1Mq"/>
+                        <outlet property="cropButton" destination="BrR-em-eee" id="SqX-yc-55N"/>
                         <outlet property="filter1Button" destination="wxg-2L-2RQ" id="4mV-yA-3oT"/>
                         <outlet property="filterPicker" destination="BES-4h-LR7" id="ysh-Ge-A2o"/>
                         <outlet property="logoImage" destination="etw-yU-y5P" id="TIz-cy-Pdn"/>
                         <outlet property="logoText" destination="pvv-P3-lGv" id="diS-7a-ceL"/>
                         <outlet property="photo" destination="vUk-z0-6Cx" id="GBD-Th-94Y"/>
                         <outlet property="saveButton" destination="XCX-uv-POQ" id="doB-RX-NVQ"/>
+                        <segue destination="p4R-Eb-iZk" kind="showDetail" identifier="cropseg1" id="L3H-a7-wwX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFU-sb-YpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1385.625" y="116.19718309859155"/>
+        </scene>
+        <!--Cropper View-->
+        <scene sceneID="aBa-NC-Wap">
+            <objects>
+                <viewController id="p4R-Eb-iZk" customClass="cropperView" customModule="Shutter_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eow-6A-Sew">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="VTN-Tc-xRC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rol-Jg-Zcs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4r-8p-MbM">
+                                        <rect key="frame" x="8" y="71" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Rol-Jg-Zcs" firstAttribute="leading" secondItem="VTN-Tc-xRC" secondAttribute="leading" id="Qzr-Wv-EeL"/>
+                                    <constraint firstItem="Rol-Jg-Zcs" firstAttribute="centerX" secondItem="VTN-Tc-xRC" secondAttribute="centerX" id="YjQ-2r-z8D"/>
+                                    <constraint firstItem="Rol-Jg-Zcs" firstAttribute="top" secondItem="VTN-Tc-xRC" secondAttribute="top" id="cdY-ry-4d9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rol-Jg-Zcs" secondAttribute="trailing" id="dKB-b7-h0Y"/>
+                                    <constraint firstItem="Rol-Jg-Zcs" firstAttribute="centerY" secondItem="VTN-Tc-xRC" secondAttribute="centerY" id="dtT-px-EBR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rol-Jg-Zcs" secondAttribute="bottom" id="n9z-0v-ki6"/>
+                                </constraints>
+                            </scrollView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-HI-BKh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Qyn-Wg-Krz"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4t-l0-8ER">
+                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYZ-fO-HMg">
+                                        <rect key="frame" x="8" y="1.6666666666666679" width="50" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="dMO-4d-sBw"/>
+                                            <constraint firstAttribute="height" constant="37" id="oKC-Bg-PvR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backAct:" destination="p4R-Eb-iZk" eventType="touchUpInside" id="zub-Kf-agZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zez-gw-b6s">
+                                        <rect key="frame" x="182" y="1.6666666666666679" width="50" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="USx-8m-MMY"/>
+                                            <constraint firstAttribute="height" constant="37" id="s8g-df-iqf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Crop">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cropAct:" destination="p4R-Eb-iZk" eventType="touchUpInside" id="DNx-i8-npS"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-5S-Ejg">
+                                        <rect key="frame" x="360" y="1.6666666666666679" width="50" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="hW0-P3-fO2"/>
+                                            <constraint firstAttribute="height" constant="37" id="kvf-Td-ebM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextAct:" destination="p4R-Eb-iZk" eventType="touchUpInside" id="CdG-5Q-fL3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.63985820520000003" green="0.83282374020000005" blue="0.94901031260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fq1-8Z-OPA"/>
+                                    <constraint firstItem="o1p-rh-vBe" firstAttribute="trailing" secondItem="7hr-5S-Ejg" secondAttribute="trailing" constant="4" id="GfA-bF-6Jw"/>
+                                    <constraint firstItem="zez-gw-b6s" firstAttribute="centerX" secondItem="o4t-l0-8ER" secondAttribute="centerX" id="Uhe-xT-w94"/>
+                                    <constraint firstItem="aYZ-fO-HMg" firstAttribute="leading" secondItem="o1p-rh-vBe" secondAttribute="leading" constant="8" id="VeR-ch-z1O"/>
+                                    <constraint firstItem="zez-gw-b6s" firstAttribute="centerY" secondItem="o4t-l0-8ER" secondAttribute="centerY" id="X2E-W5-dai"/>
+                                    <constraint firstItem="aYZ-fO-HMg" firstAttribute="centerY" secondItem="o4t-l0-8ER" secondAttribute="centerY" id="jGR-6I-Ycr"/>
+                                    <constraint firstItem="7hr-5S-Ejg" firstAttribute="centerY" secondItem="o4t-l0-8ER" secondAttribute="centerY" id="sek-6d-nZ9"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="o1p-rh-vBe"/>
+                            </view>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hyj-QL-bVR" customClass="CropFrame" customModule="Shutter_3" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="212.66666666666666" width="414" height="310.66666666666674"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hyj-QL-bVR" secondAttribute="height" multiplier="4:3" id="v15-YK-1RT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o4t-l0-8ER" firstAttribute="top" secondItem="f5h-HI-BKh" secondAttribute="bottom" id="IqI-Pc-OFS"/>
+                            <constraint firstItem="o4t-l0-8ER" firstAttribute="leading" secondItem="4HR-RI-8li" secondAttribute="leading" id="NV1-7Y-7kG"/>
+                            <constraint firstItem="f5h-HI-BKh" firstAttribute="leading" secondItem="eow-6A-Sew" secondAttribute="leading" id="PJw-es-DHk"/>
+                            <constraint firstItem="hyj-QL-bVR" firstAttribute="centerY" secondItem="eow-6A-Sew" secondAttribute="centerY" id="Yqg-XB-iuS"/>
+                            <constraint firstItem="o4t-l0-8ER" firstAttribute="trailing" secondItem="4HR-RI-8li" secondAttribute="trailing" id="a0f-fW-vPU"/>
+                            <constraint firstItem="hyj-QL-bVR" firstAttribute="leading" secondItem="4HR-RI-8li" secondAttribute="leading" id="a5J-1v-kJD"/>
+                            <constraint firstAttribute="trailing" secondItem="f5h-HI-BKh" secondAttribute="trailing" id="bum-bU-lyJ"/>
+                            <constraint firstItem="f5h-HI-BKh" firstAttribute="top" secondItem="eow-6A-Sew" secondAttribute="top" id="fbp-2K-aJA"/>
+                            <constraint firstItem="VTN-Tc-xRC" firstAttribute="bottom" secondItem="4HR-RI-8li" secondAttribute="bottom" id="gRd-H5-HOH"/>
+                            <constraint firstItem="VTN-Tc-xRC" firstAttribute="top" secondItem="eow-6A-Sew" secondAttribute="top" id="jMW-29-Sqb"/>
+                            <constraint firstItem="VTN-Tc-xRC" firstAttribute="trailing" secondItem="4HR-RI-8li" secondAttribute="trailing" id="lhM-G6-aOS"/>
+                            <constraint firstItem="hyj-QL-bVR" firstAttribute="trailing" secondItem="4HR-RI-8li" secondAttribute="trailing" id="t4g-kb-JgQ"/>
+                            <constraint firstItem="VTN-Tc-xRC" firstAttribute="leading" secondItem="4HR-RI-8li" secondAttribute="leading" id="vDF-2K-wC2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4HR-RI-8li"/>
+                    </view>
+                    <connections>
+                        <outlet property="backbtn" destination="aYZ-fO-HMg" id="SVF-RI-mBT"/>
+                        <outlet property="cropFrame" destination="hyj-QL-bVR" id="eu7-kZ-7U5"/>
+                        <outlet property="cropbtn" destination="zez-gw-b6s" id="Qci-gC-bWf"/>
+                        <outlet property="helpLabel" destination="i4r-8p-MbM" id="jN7-gF-AY9"/>
+                        <outlet property="imageView" destination="Rol-Jg-Zcs" id="mQg-d7-Uqu"/>
+                        <outlet property="nextbtn" destination="7hr-5S-Ejg" id="zBb-sz-vxP"/>
+                        <outlet property="scrollView" destination="VTN-Tc-xRC" id="CEQ-EB-9dI"/>
+                        <segue destination="XBB-Cr-cPh" kind="presentation" identifier="cropseg2" id="V4N-ul-gwS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dR-bG-vVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2407.5" y="115.14084507042254"/>
         </scene>
         <!--Preview And Edit2-->
         <scene sceneID="3Dh-xJ-3yd">
@@ -1033,4 +1187,7 @@
         <image name="superlood-1" width="216" height="216"/>
         <image name="unnamed-4" width="240" height="240"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="86V-8n-95L"/>
+    </inferredMetricsTieBreakers>
 </document>

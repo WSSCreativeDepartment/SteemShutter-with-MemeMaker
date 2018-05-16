@@ -81,6 +81,8 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         let selectedImage = info [UIImagePickerControllerOriginalImage] as! UIImage
         pickedImage.image = selectedImage
         dismiss(animated: true, completion: nil)
+        choseimage2.isHidden = false
+        chooseTheImage.isHidden = true
     }
     
     // Texts
@@ -122,8 +124,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         controller.sourceType = .photoLibrary
         
         present(controller, animated: true, completion: nil)
-        choseimage2.isHidden = false
-        chooseTheImage.isHidden = true
+        
     }
     
     

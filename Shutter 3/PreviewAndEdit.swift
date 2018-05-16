@@ -22,6 +22,7 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var logoText: UILabel!
     
+    @IBOutlet weak var cropButton: NSLayoutConstraint!
     
     
     
@@ -48,6 +49,10 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         logoText.text = finalText
         logoText.font = finalFont
+        
+        
+        
+        
         
         self.logoImage.image = resizeImage(image: logoImage.image!, targetSize: CGSize(width: (photo.image?.size.width)!/12.1, height: (photo.image?.size.height)!/16.128))
         
@@ -121,15 +126,19 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = UIColor.white
+        let strokeColor = UIColor.black
+
         let fname = logoText.font.fontName
         
-        let textFont = UIFont(name: fname, size: (image.size.width / 22.4))
+        let textFont = UIFont(name: fname, size: ((logoImage.image?.size.height)!/2))
         
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
         
         let textFontAttributes = [
             NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.strokeColor: strokeColor,
+            NSAttributedStringKey.strokeWidth: -1.0,
             NSAttributedStringKey.foregroundColor: textColor,
             ] as [NSAttributedStringKey : Any]
         image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
@@ -149,7 +158,7 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         image1.draw(in: CGRect(x: 0, y: 0, width: image1.size.width, height: image1.size.height))
         
         
-        image2.draw(at: CGPoint(x: ((photo.image?.size.width)!/37.8), y: ((photo.image?.size.height)!-(photo.image?.size.height)!/11)))
+        image2.draw(at: CGPoint(x: (logoImage.image?.size.width)!/3, y: ((photo.image?.size.height)!-(logoImage.image?.size.height)!-((logoImage.image?.size.height)!/3))))
         let newImage2 = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage2!
@@ -170,7 +179,7 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func saveButtonAction(_ sender: Any) {
         
-        self.photo.image = textToImage(drawText: logoText.text!, inImage: photo.image!, atPoint: CGPoint(x: ((photo.image?.size.width)!/9.6), y: ((photo.image?.size.height)!-((photo.image?.size.height)!/12.8))))
+        self.photo.image = textToImage(drawText: logoText.text!, inImage: photo.image!, atPoint: CGPoint(x: (logoImage.image?.size.width)!/0.8, y: ((photo.image?.size.height)!-(logoImage.image?.size.height)!-((logoImage.image?.size.height)!/3))))
         self.photo.image = combineTwo(bcgimage: photo.image!, wtmimage: logoImage.image!)
 
         
@@ -200,19 +209,23 @@ class PreviewAndEdit: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var slika = segue.destination as! cropperView
+        slika.photka = photo.image!
+        slika.font = logoText.font
+        slika.tekst = logoText.text!
+    }
 
+    @IBAction func cropAction(_ sender: Any) {
+        
+        performSegue(withIdentifier: "cropseg1", sender: nil)
+        
+        
+    }
     
 
 }
