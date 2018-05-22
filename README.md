@@ -17,6 +17,9 @@ When you make a photo, you can edit them using CG Filters. I you can add a filte
 ### Cropping
 Now you can crop your images by pinch gesture using two fingers. It is only possible for photos taken with SteemShutter.
 
+### Colors
+Version 1.8 brings six colors for sgnature and meme letters. Just tap on one of them at the bottom of your screen. 
+
 SteemShutter by @dumar022
 Button design: @svarozich
 Steemit.com
