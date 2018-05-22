@@ -139,7 +139,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         let fname = gnatureLabel.font.fontName
         
-        let textFont = UIFont(name: fname, size: ((gnatureIcon.image?.size.height)!/2))
+        let textFont = UIFont(name: fname, size: ((gnatureIcon.image?.size.height)!/1.75))
         
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
@@ -147,7 +147,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         let textFontAttributes = [
             NSAttributedStringKey.font: textFont,
             NSAttributedStringKey.strokeColor: strokeColor,
-            NSAttributedStringKey.strokeWidth: -0.5,
+            NSAttributedStringKey.strokeWidth: -0.25,
             NSAttributedStringKey.foregroundColor: textColor,
             ] as [NSAttributedStringKey : Any]
         image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
@@ -351,13 +351,13 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     }
     
     @IBAction func greenAction(_ sender: Any) {
-        allColor = whiteButton.backgroundColor
+        allColor = greenButton.backgroundColor
         topTextField.textColor = greenButton.backgroundColor
         bottomTextField.textColor = greenButton.backgroundColor
         gnatureLabel.textColor = greenButton.backgroundColor
     }
     @IBAction func blackAction(_ sender: Any) {
-        allColor = whiteButton.backgroundColor
+        allColor = blackButton.backgroundColor
         topTextField.textColor = blackButton.backgroundColor
         bottomTextField.textColor = blackButton.backgroundColor
         gnatureLabel.textColor = blackButton.backgroundColor
