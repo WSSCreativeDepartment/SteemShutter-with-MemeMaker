@@ -1,17 +1,22 @@
 //
-//  cropperView.swift
+//  cropViewController.swift
 //  Shutter 3
 //
-//  Created by Mario Kardum on 16/05/2018.
+//  Created by Mario Kardum on 15/05/2018.
 //  Copyright © 2018 dumar022. All rights reserved.
 //
 
 import UIKit
 
-class cropperView: UIViewController, UIScrollViewDelegate {
+class cropViewController: UIViewController, UIScrollViewDelegate {
+    
+    @IBOutlet weak var helpLabel: UILabel!
+    var photka: UIImage?
+    var font: UIFont?
+    var tekst = String()
     
     @IBOutlet weak var scrollView: UIScrollView!{
-        
+    
         didSet {
             scrollView.delegate = self
             scrollView.maximumZoomScale = 10.0
@@ -20,22 +25,13 @@ class cropperView: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var helpLabel: UILabel!
-    
-    @IBOutlet weak var backbtn: UIButton!
-    @IBOutlet weak var cropbtn: UIButton!
-    @IBOutlet weak var nextbtn: UIButton!
     
     @IBOutlet weak var cropFrame: CropFrame!
     
-    var photka: UIImage?
-    var font: UIFont?
-    var tekst = String()
+ 
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = photka
@@ -51,21 +47,20 @@ class cropperView: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
     var cropArea:CGRect{
-        get{
-            let factor = imageView.image!.size.width/view.frame.width
-            let scale = 1/scrollView.zoomScale
-            let imageFrame = imageView.imageFrame()
-            let x = (scrollView.contentOffset.x + cropFrame.frame.origin.x - imageFrame.origin.x) * scale * factor
-            let y = (scrollView.contentOffset.y + cropFrame.frame.origin.y - imageFrame.origin.y) * scale * factor
-            let width = cropFrame.frame.size.width * scale * factor
-            let height = cropFrame.frame.size.height * scale * factor
-            return CGRect(x: x, y: y, width: width, height: height)
-        }
+    get{
+    let factor = imageView.image!.size.width/view.frame.width
+    let scale = 1/scrollView.zoomScale
+    let imageFrame = imageView.imageFrame()
+    let x = (scrollView.contentOffset.x + cropFrame.frame.origin.x - imageFrame.origin.x) * scale * factor
+    let y = (scrollView.contentOffset.y + cropFrame.frame.origin.y - imageFrame.origin.y) * scale * factor
+    let width = cropFrame.frame.size.width * scale * factor
+    let height = cropFrame.frame.size.height * scale * factor
+    return CGRect(x: x, y: y, width: width, height: height)
     }
-    
-    
-    
+    }
     
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -83,30 +78,28 @@ class cropperView: UIViewController, UIScrollViewDelegate {
         
     }
     
-    @IBAction func backAct(_ sender: Any) {
+    @IBAction func bck(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+
+        
+        
     }
-    
-    
-    @IBAction func cropAct(_ sender: Any) {
+    @IBAction func crp(_ sender: Any) {
         let croppedCGImage = imageView.image?.cgImage?.cropping(to: cropArea)
         let croppedImage = UIImage(cgImage: croppedCGImage!)
         imageView.image = croppedImage
         scrollView.zoomScale = 1
         cropFrame.isHidden = true
-        nextbtn.isHidden = false
-        cropbtn.isHidden = true
     }
     
-    
-    @IBAction func nextAct(_ sender: Any) {
-        performSegue(withIdentifier: "cropseg2", sender: nil)
+    @IBAction func nxt(_ sender: Any) {
+        performSegue(withIdentifier: "povratna", sender: nil)
+
     }
-    
-    
 
 
 }
+
 extension UIImageView{
     func imageFrame()->CGRect{
         let imageViewSize = self.frame.size
@@ -128,12 +121,9 @@ extension UIImageView{
     }
     
     
+    
+    
+    
 }
 
-class CropFrame: UIView {
-    
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        return false
-    }
-    
-}
+

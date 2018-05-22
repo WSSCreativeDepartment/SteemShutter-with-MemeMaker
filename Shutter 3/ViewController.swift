@@ -46,6 +46,12 @@ class ViewController: UIViewController {
     
     var textStr: String?
     var theFont: UIFont?
+    
+
+    var focusPoint: CGPoint?
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +70,9 @@ class ViewController: UIViewController {
         zoomOutGesture.addTarget(self, action: #selector(zoomOut))
         view.addGestureRecognizer(zoomOutGesture)
         
-       
+
         
-        
+
         
     }
         override func viewDidLayoutSubviews() {
@@ -86,6 +92,9 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+
     
     
     func setupCaptureSession()  {
@@ -166,8 +175,14 @@ class ViewController: UIViewController {
             
             print("touch to focus ", thisFocusPoint)
             
+            
             let focus_x = thisFocusPoint.x / cameraView.frame.size.width
             let focus_y = thisFocusPoint.y / cameraView.frame.size.height
+            
+           
+            
+            
+           
             
             if (currentCamera!.isFocusModeSupported(.autoFocus) && currentCamera!.isFocusPointOfInterestSupported) {
                 do {
@@ -179,6 +194,8 @@ class ViewController: UIViewController {
                         currentCamera?.exposureMode = .autoExpose;
                         currentCamera?.exposurePointOfInterest = CGPoint(x: focus_x, y: focus_y);
                     }
+                    
+                
                     
                     currentCamera?.unlockForConfiguration()
                 } catch {
@@ -230,10 +247,10 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "noviseg2" {
-            let previewViewController = segue.destination as! PreviewAndEdit
+        if segue.identifier == "noviseg3" {
+            let previewViewController = segue.destination as! PreviewController
             previewViewController.image = self.image
-            var neki = segue.destination as! PreviewAndEdit
+            var neki = segue.destination as! PreviewController
             neki.finalText = names.text!
             neki.finalFont = names.font
     
@@ -241,9 +258,13 @@ class ViewController: UIViewController {
         
     }
     
+    
+    
     @IBAction func signatureCreatorAction(_ sender: Any) {
         performSegue(withIdentifier: "sig_seg", sender: nil)
     }
+    
+    
     
     
     @IBAction func memeMakerAction(_ sender: Any) {
@@ -268,7 +289,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
         {
             self.image = UIImage(data: imageData)
             image = image?.fixOrientation()
-            performSegue(withIdentifier: "noviseg2", sender: nil)
+            performSegue(withIdentifier: "noviseg3", sender: nil)
         }
     }
 }
