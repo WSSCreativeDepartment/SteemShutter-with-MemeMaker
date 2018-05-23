@@ -813,14 +813,12 @@
                                             <action selector="shutterButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ci-gV-hIg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-nz-eQh">
-                                        <rect key="frame" x="201" y="20.5" width="111" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-nz-eQh">
+                                        <rect key="frame" x="239" y="7" width="73" height="73"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="55h-lb-7dK"/>
-                                            <constraint firstAttribute="width" constant="111" id="MzV-Lx-WPa"/>
+                                            <constraint firstAttribute="width" secondItem="jQm-nz-eQh" secondAttribute="height" multiplier="1:1" id="6T2-92-Kr3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
-                                        <state key="normal" title="Meme Maker">
+                                        <state key="normal" image="shutmemshutmem">
                                             <color key="titleColor" red="0.094117647060000004" green="0.2666666667" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -830,12 +828,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.63985820520000003" green="0.83282374020000005" blue="0.94901031260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jQm-nz-eQh" secondAttribute="bottom" constant="6" id="3zS-JM-8wv"/>
+                                    <constraint firstItem="jQm-nz-eQh" firstAttribute="top" secondItem="CUd-ln-DpO" secondAttribute="top" constant="7" id="AfR-n5-Rwg"/>
                                     <constraint firstItem="6yx-EW-gei" firstAttribute="centerX" secondItem="CUd-ln-DpO" secondAttribute="centerX" id="GOh-Rd-kwQ"/>
                                     <constraint firstAttribute="bottom" secondItem="6yx-EW-gei" secondAttribute="bottom" constant="6.6699999999999999" id="WTa-bc-PKU"/>
                                     <constraint firstItem="6yx-EW-gei" firstAttribute="top" secondItem="CUd-ln-DpO" secondAttribute="top" constant="8" id="bUA-Hb-ASR"/>
-                                    <constraint firstItem="jQm-nz-eQh" firstAttribute="centerY" secondItem="CUd-ln-DpO" secondAttribute="centerY" id="coH-rU-SIs"/>
-                                    <constraint firstAttribute="trailing" secondItem="jQm-nz-eQh" secondAttribute="trailing" constant="8" id="iHm-X1-0Bo"/>
                                     <constraint firstAttribute="width" secondItem="CUd-ln-DpO" secondAttribute="height" multiplier="138:37" id="iJz-Ia-cVr"/>
+                                    <constraint firstAttribute="trailing" secondItem="jQm-nz-eQh" secondAttribute="trailing" constant="8" id="jGx-JU-UKP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -877,7 +876,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="113.04347826086958" y="114.94565217391305"/>
+            <point key="canvasLocation" x="112.5" y="114.08450704225352"/>
         </scene>
         <!--Preview Controller-->
         <scene sceneID="SbL-eh-Htn">
@@ -1285,6 +1284,7 @@
     <resources>
         <image name="amobotun" width="216" height="216"/>
         <image name="sh2" width="216" height="216"/>
+        <image name="shutmemshutmem" width="556" height="556"/>
         <image name="steem-logo1" width="250" height="250"/>
         <image name="superlood-1" width="216" height="216"/>
         <image name="unnamed-4" width="240" height="240"/>

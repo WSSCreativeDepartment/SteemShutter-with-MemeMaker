@@ -10,11 +10,13 @@ import UIKit
 
 class fontovi: UIViewController {
     
+    // Two vars - the first one receives the username text from the segue. The other one is to define the chosen font
+    
     
     var stringName = String()
     var chosenFont: UIFont?
     
-    // FontLabels
+    // FontLabels - 8 labels with different fonts. On the left side of each label is an UPVOTE button. So upvote a font that you like
     
     @IBOutlet weak var font1: UILabel!
     @IBOutlet weak var font2: UILabel!
@@ -31,6 +33,9 @@ class fontovi: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // This is important, it places your username into those 8 labels. So you are able to see your username in 8 different fonts before you choose one.
+        
         font1.text = stringName
         font2.text = stringName
         font3.text = stringName
@@ -43,18 +48,30 @@ class fontovi: UIViewController {
 
     }
     
+    // saving chosen font to UserDefaults so app will remember it and after you exit the app
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         UserDefaults.standard.set(chosenFont?.fontName, forKey: "supak")
     }
+    
+    
+    // Back button
     
     @IBAction func bckBtn2(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    // These are actions of 8 buttons that stand next to the font labels.
+    
     @IBAction func but1(_ sender: Any) {
         chosenFont = font1.font
+        
+        // Saving the username text as UserDefaults
+        
         UserDefaults.standard.set(stringName, forKey: "myName")
         performSegue(withIdentifier: "retardo", sender: nil)
+        
+        // The same is for next 7 buttons BELOW
         
     }
     @IBAction func but2(_ sender: Any) {

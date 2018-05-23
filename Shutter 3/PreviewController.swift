@@ -10,6 +10,9 @@ import UIKit
 
 class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate {
     
+    
+    // I added a scroll view when I included cropping and zooming.
+    
     @IBOutlet weak var scrollView: UIScrollView!{
         
         didSet {
@@ -19,13 +22,22 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
             
         }
     }
+    
+    // Received image taken by SteemShutter
     @IBOutlet weak var photo: UIImageView!
     
+    
+    // I wrote font picker, but I was thinking about filterPicker.My bad
+    
     @IBOutlet weak var fontPicker: UIPickerView!
+    
+    // Steem logo and signature (username text and font)
     
     @IBOutlet weak var steemLogo: UIImageView!
     @IBOutlet weak var steemSignature: UILabel!
     
+    
+    // Buttons - back button,crop button, save button, filters button and rotate button. FiltersButton shows filtersPicker, which is hidden by default.
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cropButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -34,21 +46,33 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var clearFiltersButton: UIButton!
     @IBOutlet weak var rotateButton: UIButton!
     
+    // CropFrame is hidden until you tap the crop button
+    
     @IBOutlet weak var cropFrame: CropFrame!
     
+    
+    // Image that comes with segue
     var image: UIImage?
     
+    // Font color
     var pickedColor: UIColor?
     
+    // Picked filter
     var filterName: CIFilter?
     
+    // List of the filters in the picker. These are CIFilters and their original names as STRINGS to call them later
     let filters = ["CIPhotoEffectMono", "CISepiaTone", "CIColorMonochrome", "CIPhotoEffectChrome", "CIColorInvert", "CIPhotoEffectInstant", "CIPhotoEffectFade", "CIPhotoEffectTonal", "CIVignette", "CIPhotoEffectProcess", "CIMaskToAlpha", "CIColorPosterize", "CIFalseColor", "CIColorCube"]
     
+    
+    // Finished signature
     var finalText = String()
     var finalFont = UIFont()
 
-    @IBOutlet weak var colorView: UIView!
+ //   @IBOutlet weak var colorView: UIView!
     
+    
+    
+    // Color buttons
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var whiteButton: UIButton!
@@ -63,7 +87,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pickedColor = .white
+        
         
         fontPicker.isHidden = true
         fontPicker.delegate = self
@@ -74,23 +98,28 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         steemSignature.text = finalText
         steemSignature.font = finalFont
         
+        // pickedColor is white by default.
+
+        pickedColor = UIColor.white
+
         steemSignature.textColor = pickedColor
         
         
         
-        
+        // I want app to work on different photo resolutions, so the size of Steem Logo depends on the photo's width. this is a call of resizeImage function
         
         self.steemLogo.image = resizeImage(image: steemLogo.image!, targetSize: CGSize(width: (photo.image?.size.width)!/12.1, height: (photo.image?.size.height)!/16.128))
         
+        
+        // Outline of cropFrame
         self.cropFrame.layer.borderWidth = 1
         self.cropFrame.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        
         
         
 
     }
     
-    // Filter Pickers
+    // Filter Picker
     
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -112,6 +141,8 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         fontPicker.isHidden = true
     }
     
+    // This is the function that asks for filter name picked from the picker. t uses it as identifier and applies it to your photo.
+    
     func filtersDone(image:UIImage) -> UIImage {
         let cgimg = image.cgImage
         let coreImage = CIImage(cgImage: cgimg!)
@@ -124,7 +155,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return newImage
     }
     
-    
+    // function to resize that SteemLogo proportional to the photo
     
     func resizeImage(image: UIImage, targetSize: CGSize ) -> UIImage {
         let size = image.size
@@ -149,34 +180,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return newImage!
     }
     
-    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
-        let textColor = pickedColor
-        let strokeColor = UIColor.black
-        
-        let fname = steemSignature.font.fontName
-        
-        let textFont = UIFont(name: fname, size: ((steemLogo.image?.size.height)!/1.75))
-        
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-        
-        let textFontAttributes = [
-            NSAttributedStringKey.font: textFont,
-            NSAttributedStringKey.strokeColor: strokeColor,
-            NSAttributedStringKey.strokeWidth: -0.25,
-            NSAttributedStringKey.foregroundColor: textColor,
-            ] as [NSAttributedStringKey : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-        
-        let rect = CGRect(origin: point, size: image.size)
-        text.draw(in: rect, withAttributes: textFontAttributes)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
+    // Function to DRAW the SteemLogoon your photo
     
     func combineTwo (bcgimage image1: UIImage, wtmimage image2: UIImage) -> UIImage {
         UIGraphicsBeginImageContext(image1.size);
@@ -189,6 +193,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return newImage2!
     }
     
+    // Defining cropArea
     var cropArea:CGRect{
         get{
             let factor = photo.image!.size.width/view.frame.width
@@ -202,13 +207,21 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         }
     }
     
+    
+    // We included pinch to zoom for the photo
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return photo
     }
     
+    
+    // Back button
     @IBAction func backButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    // Startropping button shows cropFrame and changes it's name to Finish Cropping. When you tap on Finish Cropping, you get cropped image
     @IBAction func startCroppingAction(_ sender: Any) {
         
         
@@ -225,14 +238,20 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
         }
     }
+    
+    
+    // Save... and...
     @IBAction func saveButtonAction(_ sender: Any) {
         
+        // Drawing signature text on the photo. It's size is proportional to resized steem logo
         self.photo.image = textToImage(drawText: steemSignature.text!, inImage: photo.image!, atPoint: CGPoint(x: (steemLogo.image?.size.width)!/0.8, y: ((photo.image?.size.height)!-(steemLogo.image?.size.height)!-((steemLogo.image?.size.height)!/5))))
+        
+        // Drawing SteemLogo on the photo
         self.photo.image = combineTwo(bcgimage: photo.image!, wtmimage: steemLogo.image!)
         
         
         
-        
+        // Save to photo library
         
         guard let imageToSave = photo.image
             else {
@@ -244,24 +263,33 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         
     }
+    
+    // This button opens the filtersPicker
     @IBAction func filtersAction(_ sender: Any) {
         if fontPicker.isHidden {
             fontPicker.isHidden = false
         }
         
     }
+    
+    // This button takes you back to your originalphoto, as it was when you took it
     @IBAction func clearFiltersAction(_ sender: Any) {
         photo.image = image
 
     }
+    
+    
+    // Rotate photo for 90 degrees. Useful
     @IBAction func rtateAction(_ sender: Any) {
         photo.image = photo.image?.rotate(radians: .pi/2)
 
     }
     
-    
+    // Colors button
  
     @IBAction func redButtonAction(_ sender: Any) {
+        
+        // we take color from a painted button to sername text
         pickedColor = redButton.backgroundColor
         steemSignature.textColor = redButton.backgroundColor
         
@@ -296,6 +324,35 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         steemSignature.textColor = blackButton.backgroundColor
     }
     
+    // Function that draws text on the image
+    
+    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+        let textColor = pickedColor
+        let strokeColor = UIColor.black
+        
+        let fname = steemSignature.font.fontName
+        
+        let textFont = UIFont(name: fname, size: ((steemLogo.image?.size.height)!/1.75))
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        
+        let textFontAttributes = [
+            NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.strokeColor: strokeColor,
+            NSAttributedStringKey.strokeWidth: -1,
+            NSAttributedStringKey.foregroundColor: textColor,
+            ] as [NSAttributedStringKey : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let rect = CGRect(origin: point, size: image.size)
+        text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
     
     
 
@@ -303,6 +360,8 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
 }
 
+
+// extension for rotation
 extension UIImage {
     func rotate(radians: Float) -> UIImage? {
         var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
@@ -323,6 +382,8 @@ extension UIImage {
         return newImage2
     }
 }
+
+// Extension for the frame of cropFrame
 
 extension UIImageView{
     func imageFrame()->CGRect{
@@ -350,6 +411,7 @@ extension UIImageView{
     
 }
 
+// I had to add this class, otherwise you wouldn"t be able to zoom inside the cropFrame
 
 class CropFrame: UIView {
     

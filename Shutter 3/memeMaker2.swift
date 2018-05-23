@@ -12,11 +12,21 @@ import UIKit
 class memeMaker2: UIViewController {
     
     
+    // A simple view controller that lets us decide will we save the meme or create the other one.
+    
+    
+    // Image from memeMaker1 View Controller
+    
     var theImage: UIImage?
+    
+    
+    // save and back buttons
 
     @IBOutlet weak var backbut5: UIButton!
     @IBOutlet weak var savebut2: UIButton!
  
+    
+    // Image view for theImage
     
     @IBOutlet weak var memeImage: UIImageView!
     
@@ -37,9 +47,14 @@ class memeMaker2: UIViewController {
     }
    
     
+    // back button
+    
     @IBAction func back6(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    // save to Photo Library
     
     @IBAction func savact(_ sender: Any) {
         guard let imageToSave = memeImage.image

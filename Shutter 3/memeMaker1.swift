@@ -19,31 +19,46 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     
     @IBOutlet weak var pickedImage: UIImageView!
     
+    // Meme text fields
+    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    // Font buttons
     
     @IBOutlet weak var fontsBtn: UIButton!
     @IBOutlet weak var colorBtmn: UIButton!
     @IBOutlet weak var fontpicker: UIPickerView!
     
+    // Signature Laben and icon
+    
     @IBOutlet weak var gnatureIcon: UIImageView!
     @IBOutlet weak var gnatureLabel: UILabel!
+    
+    // Hide signature
     
     @IBOutlet weak var hidSigBut: UIButton!
     
     
-    
+    // Help vars for fonts
     
     var labelFont: UIFont?
     var labelColor: UIColor?
     var superColor = UIColor.black
     
+    
+    // Images added for drawing text on the source images
+    
     var laImage: UIImage?
     
     var hotImage: UIImage?
     
+    // Fonts for the picker
+    
     let fontos = ["HoeflerText-Black", "Farah", "BradleyHandITCTT-Bold", "Noteworthy-Bold", "SnellRoundhand-Bold", "MarkerFelt-Wide", "Avenir-BlackOblique", "Futura-CondensedExtraBold", "Courier-BoldOblique", "HiraKakuProN-W3"]
     
+    
+    // Colors buttons
     
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
@@ -70,6 +85,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         fontpicker.isHidden = true
         fontpicker.dataSource = self
         
+        
+        // allColor is the color of the text that draws on your image
+        
         allColor = UIColor.white
         
         
@@ -78,6 +96,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
 
     }
     
+    // Pulling signature text from NSUserDefaults
     
     override func viewDidAppear(_ animated: Bool) {
         if let x = UserDefaults.standard.object(forKey: "myName") as? String {
@@ -89,6 +108,8 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         }
         
     }
+    
+    // Functions for pickerView
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -110,7 +131,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         
     }
     
-    // Picker
+    // Image Picker
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -133,6 +154,12 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         return true
     }
     
+    
+    
+    
+    // Drawing signature on the photo
+
+    
     func textToImage2(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = allColor
         let strokeColor = UIColor.black
@@ -147,7 +174,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         let textFontAttributes = [
             NSAttributedStringKey.font: textFont,
             NSAttributedStringKey.strokeColor: strokeColor,
-            NSAttributedStringKey.strokeWidth: -0.25,
+            NSAttributedStringKey.strokeWidth: -1,
             NSAttributedStringKey.foregroundColor: textColor,
             ] as [NSAttributedStringKey : Any]
         image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
@@ -162,6 +189,11 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     }
     
     
+    
+    
+    // Drawing Steem logo on the photo
+    
+    
     func combineTwo (bcgimage image1: UIImage, wtmimage image2: UIImage) -> UIImage {
         UIGraphicsBeginImageContext(image1.size);
         image1.draw(in: CGRect(x: 0, y: 0, width: image1.size.width, height: image1.size.height))
@@ -172,6 +204,10 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         UIGraphicsEndImageContext()
         return newImage2!
     }
+    
+    
+    
+    // Resize Steem logo
     
     func resizeImage2(image: UIImage, targetSize: CGSize ) -> UIImage {
         let size = image.size
@@ -202,21 +238,29 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     // Buttons
     
     
+    // Font picker
+    
+    
     @IBAction func fontsAction(_ sender: Any) {
         if fontpicker.isHidden {
             fontpicker.isHidden = false
         }
     }
     
-    @IBAction func colorAction(_ sender: Any) {
-    }
+  //  @IBAction func colorAction(_ sender: Any) {
+//    }
     
     
     
-    
+    // back button
     @IBAction func back3Act(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    // Choose image button
+    
     @IBAction func chooseImageAction(_ sender: Any) {
         
         let controller = UIImagePickerController()
@@ -227,6 +271,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         
     }
     
+    
+    
+    // Change image button
     
     @IBAction func chose2(_ sender: Any) {
         let controller = UIImagePickerController()
@@ -239,7 +286,12 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     
     
     
+    // Next Button
+    
     @IBAction func nextButton(_ sender: Any) {
+        
+        
+        // Calling function textToImage to draw top text field and bottom text field on the photo
         
         self.hotImage = textToImage(drawText: topTextField.text!, inImage: pickedImage.image!, atPoint: CGPoint(x: ((pickedImage.image?.size.width)!/2), y: (((pickedImage.image?.size.height)!/30))))
         
@@ -248,9 +300,16 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         if gnatureIcon.isHidden == false {
         
         
+            
+    // Calling function textToImage2 to draw signature label on the photo
+
+            
         self.laImage = textToImage2(drawText: gnatureLabel.text!, inImage: laImage!, atPoint: CGPoint(x: (gnatureIcon.image?.size.width)!/0.8, y: ((laImage!.size.height)-(gnatureIcon.image?.size.height)!-((gnatureIcon.image?.size.height)!/5))))
         self.laImage = combineTwo(bcgimage: laImage!, wtmimage: gnatureIcon.image!)
         }
+        
+        
+        // Performing segue to see the results
   
         
         performSegue(withIdentifier: "meme2meme", sender: nil)
@@ -258,6 +317,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         
         
     }
+    
+    
+    // Hide signature?Show signature button
     
     @IBAction func hidSigButAct(_ sender: Any) {
         if
@@ -275,15 +337,21 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         }
     }
     
-    
+    // preparing the result image for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        //passby - imaginary function
         var passby = segue.destination as! memeMaker2
         
         passby.theImage = laImage
     }
     
     
+    
+    
+    // function to draw meme text on the photo
     
     func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = allColor
@@ -321,6 +389,10 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         return newImage!
     }
     
+    
+    
+    
+    // color buttons actions
     
     @IBAction func pinkAction(_ sender: Any) {
         

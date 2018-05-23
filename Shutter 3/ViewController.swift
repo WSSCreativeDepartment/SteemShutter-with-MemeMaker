@@ -75,12 +75,18 @@ class ViewController: UIViewController {
 
         
     }
+    
+    // I am still working on autorotation
+    
         override func viewDidLayoutSubviews() {
           cameraPreview?.frame = cameraView.bounds
         if let photoImage = cameraPreview ,(photoImage.connection?.isVideoOrientationSupported)! {
           photoImage.connection?.videoOrientation = UIApplication.shared.statusBarOrientation.videoOrientation!
      }
      }
+    
+    
+    // This is the part when the app check is there any saved signature. If not, your username remains "@".
     
     override func viewDidAppear(_ animated: Bool) {
         if let x = UserDefaults.standard.object(forKey: "myName") as? String {
@@ -95,7 +101,7 @@ class ViewController: UIViewController {
     
     
 
-    
+    // Capture session, Front device, back device, photo output an preview layer
     
     func setupCaptureSession()  {
         captureSession.sessionPreset = AVCaptureSession.Preset .photo
@@ -139,6 +145,9 @@ class ViewController: UIViewController {
         
     }
     
+    
+    // swipe from left to right to zoom in. Swipe from right to left to zoom out
+    
     @objc func zoomIn() {
         if let zoomFactor = currentCamera?.videoZoomFactor {
             if zoomFactor < 5.0 {
@@ -168,6 +177,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    // Tap to change autofocus mode to manual focus mode. I am still working on the focus 'aim"
     
     @IBAction func focusTapGestureAction(_ sender: UITapGestureRecognizer) {
         if (sender.state == .ended) {
@@ -206,6 +217,9 @@ class ViewController: UIViewController {
         
     }
     
+    
+    // Flash on/flash off
+    
     @IBAction func flashButtonAction(_ sender: Any) {
         if flashMode == .on {
             flashMode = .off
@@ -217,6 +231,9 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+    // change camera (frant2back/back2front)
     
     @IBAction func toggleCameraButtonAction(_ sender: Any) {
         captureSession.beginConfiguration()
@@ -240,12 +257,16 @@ class ViewController: UIViewController {
         }
     }
     
+    // take a photoand bring it to Preview Controller
+    
     @IBAction func shutterButtonAction(_ sender: Any) {
         let settings = AVCapturePhotoSettings()
         settings.flashMode = self.flashMode
         self.photoOutput?.capturePhoto(with: settings, delegate: self)
     }
     
+    
+    // This is a preparaion for a segue that brings a photo image and signature text with font to Preview Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "noviseg3" {
             let previewViewController = segue.destination as! PreviewController
@@ -258,7 +279,7 @@ class ViewController: UIViewController {
         
     }
     
-    
+    // other segues - meme maker and signature creator
     
     @IBAction func signatureCreatorAction(_ sender: Any) {
         performSegue(withIdentifier: "sig_seg", sender: nil)
@@ -294,7 +315,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
     }
 }
 
-
+// this is what I need for my next update. I am working on device's autorotation
 extension UIImage {
     
     func fixOrientation() -> UIImage {
