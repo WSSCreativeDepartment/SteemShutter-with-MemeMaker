@@ -79,6 +79,8 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var orangeButton: UIButton!
+    @IBOutlet weak var lightBlueButton: UIButton!
     
     
     
@@ -86,6 +88,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         
@@ -114,6 +117,17 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         // Outline of cropFrame
         self.cropFrame.layer.borderWidth = 1
         self.cropFrame.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
+        
+        // Rounded corners for the color buttons
+        
+        pinkButton.layer.cornerRadius = 8
+        redButton.layer.cornerRadius = 8
+        blueButton.layer.cornerRadius = 8
+        whiteButton.layer.cornerRadius = 8
+        greenButton.layer.cornerRadius = 8
+        blackButton.layer.cornerRadius = 8
+        orangeButton.layer.cornerRadius = 8
+        lightBlueButton.layer.cornerRadius = 8
         
         
 
@@ -250,6 +264,15 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         self.photo.image = combineTwo(bcgimage: photo.image!, wtmimage: steemLogo.image!)
         
         
+        // Setting the new size of the image (width: 1000, height proportional)
+        
+        // the photo width is 1000, this have to he he heigth if we want our photo to keep the ratio: height: ((photo.image?.size.height)!*1000/(photo.image?.size.width)!))
+        
+        let newPhotoSize = CGSize(width: 1000, height: ((photo.image?.size.height)!*1000/(photo.image?.size.width)!))
+        
+        self.photo.image = resizeImage(image: photo.image!, targetSize: newPhotoSize)
+        
+        
         
         // Save to photo library
         
@@ -279,9 +302,16 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     }
     
     
-    // Rotate photo for 90 degrees. Useful
+    // Rotate photo for 90 degrees. Useful if you have an app that doesn't support auto-rotation
     @IBAction func rtateAction(_ sender: Any) {
         photo.image = photo.image?.rotate(radians: .pi/2)
+        
+        
+        
+    // Now we have to lift the steem logo and the label
+        
+       // steemLogo.frame = CGRect(x: 8, y: photo.bounds.size.height - steemLogo.frame.size.height - 8, width: steemLogo.frame.size.width, height: // steemLogo.frame.size.height)
+      //  I have to find a better solution for this
 
     }
     
@@ -289,7 +319,7 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
  
     @IBAction func redButtonAction(_ sender: Any) {
         
-        // we take color from a painted button to sername text
+        // we take color from a painted button to username text
         pickedColor = redButton.backgroundColor
         steemSignature.textColor = redButton.backgroundColor
         
@@ -323,6 +353,19 @@ class PreviewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         pickedColor = blackButton.backgroundColor
         steemSignature.textColor = blackButton.backgroundColor
     }
+    
+    @IBAction func rangeButtonAction(_ sender: Any) {
+        pickedColor = orangeButton.backgroundColor
+        steemSignature.textColor = orangeButton.backgroundColor
+    }
+    @IBAction func ightBlueButtonAction(_ sender: Any) {
+        pickedColor = lightBlueButton.backgroundColor
+        steemSignature.textColor = lightBlueButton.backgroundColor
+    }
+    
+    
+    
+    
     
     // Function that draws text on the image
     

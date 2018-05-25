@@ -66,15 +66,27 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     @IBOutlet weak var whiteButton: UIButton!
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var orangeButton: UIButton!
+    @IBOutlet weak var lightBlueButton: UIButton!
     
     var allColor: UIColor?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pinkButton.layer.cornerRadius = 8
+        redButton.layer.cornerRadius = 8
+        blueButton.layer.cornerRadius = 8
+        whiteButton.layer.cornerRadius = 8
+        greenButton.layer.cornerRadius = 8
+        blackButton.layer.cornerRadius = 8
+        orangeButton.layer.cornerRadius = 8
+        lightBlueButton.layer.cornerRadius = 8
         
+        chooseTheImage.layer.cornerRadius = 8
+        choseimage2.layer.cornerRadius = 8
         
-        
+        nextBtn.isHidden = true
         
         
      
@@ -144,6 +156,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         choseimage2.isHidden = false
         chooseTheImage.isHidden = true
         self.gnatureIcon.image = resizeImage2(image: gnatureIcon.image!, targetSize: CGSize(width: (pickedImage.image?.size.width)!/12.1, height: (pickedImage.image?.size.height)!/16.128))
+        nextBtn.isHidden = false
     }
     
     // Texts
@@ -372,7 +385,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
             
             NSAttributedStringKey.font: textFont,
             NSAttributedStringKey.strokeColor: strokeColor,
-            NSAttributedStringKey.strokeWidth: -5.0,
+            NSAttributedStringKey.strokeWidth: -3.0,
             NSAttributedStringKey.paragraphStyle: paragraph,
             NSAttributedStringKey.foregroundColor: textColor,
             ] as [NSAttributedStringKey : Any]
@@ -434,6 +447,19 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
         bottomTextField.textColor = blackButton.backgroundColor
         gnatureLabel.textColor = blackButton.backgroundColor
     }
+    @IBAction func orangeAction(_ sender: Any) {
+        allColor = orangeButton.backgroundColor
+        topTextField.textColor = orangeButton.backgroundColor
+        bottomTextField.textColor = orangeButton.backgroundColor
+        gnatureLabel.textColor = orangeButton.backgroundColor
+    }
+    @IBAction func lightBlueAction(_ sender: Any) {
+        allColor = lightBlueButton.backgroundColor
+        topTextField.textColor = lightBlueButton.backgroundColor
+        bottomTextField.textColor = lightBlueButton.backgroundColor
+        gnatureLabel.textColor = lightBlueButton.backgroundColor
+    }
+    
     
     
 
