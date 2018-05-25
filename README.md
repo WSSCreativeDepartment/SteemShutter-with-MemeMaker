@@ -20,6 +20,17 @@ Now you can crop your images by pinch gesture using two fingers. It is only poss
 ### Colors
 Version 1.8 brings six colors for sgnature and meme letters. Just tap on one of them at the bottom of your screen. 
 
+### Reduced size
+Steemit blog has 800 width, I think that busy.org is just a little bit wider. So why taking large photo if you do it for your blogging? Photo size reduced, SteemShutter saves your phone's memory by saving photos with width: 1000. 
+
+# TASK REQUEST
+
+I need some graphics... I am adding a collage mode to SteemShutter. I need frames for 1, 2, 3 and 4 photos. The frame has to be inspired by Steem logo: https://imgur.com/iaMjRC2.jpg...
+... and with photo film tape: https://imgur.com/BNLJVYU
+... in PNG format. 
+
+I will write more about it in my next Steemit post and I will paste the link for it here. Thank you! 
+
 SteemShutter by @dumar022
 Button design: @svarozich
 Steemit.com
