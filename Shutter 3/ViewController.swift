@@ -299,6 +299,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
       
     }
+    
+    // collage button is actually FRAMES button 
+    
+    @IBOutlet weak var collageButton: UIButton!
+    @IBAction func collageAct(_ sender: Any) {
+        performSegue(withIdentifier: "framessegue", sender: nil)
+    }
+    
 
 
 }

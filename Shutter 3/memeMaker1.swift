@@ -74,6 +74,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting rounded buttons
+        
         pinkButton.layer.cornerRadius = 8
         redButton.layer.cornerRadius = 8
         blueButton.layer.cornerRadius = 8

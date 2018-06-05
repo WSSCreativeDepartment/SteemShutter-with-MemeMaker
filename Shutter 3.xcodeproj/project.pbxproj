@@ -17,6 +17,8 @@
 		81DF3A1C20A2E10C009FCEB7 /* fontovi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3A1B20A2E10C009FCEB7 /* fontovi.swift */; };
 		81DF3A1E20A2F430009FCEB7 /* memeMaker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3A1D20A2F430009FCEB7 /* memeMaker1.swift */; };
 		81DF3A2020A2FF4A009FCEB7 /* memeMaker2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3A1F20A2FF4A009FCEB7 /* memeMaker2.swift */; };
+		81ED87F420C58EA00086D44F /* ChooseTheFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED87F320C58EA00086D44F /* ChooseTheFrame.swift */; };
+		81ED87F620C5CC370086D44F /* pickPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED87F520C5CC370086D44F /* pickPhotos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		81DF3A1B20A2E10C009FCEB7 /* fontovi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fontovi.swift; sourceTree = "<group>"; };
 		81DF3A1D20A2F430009FCEB7 /* memeMaker1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeMaker1.swift; sourceTree = "<group>"; };
 		81DF3A1F20A2FF4A009FCEB7 /* memeMaker2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeMaker2.swift; sourceTree = "<group>"; };
+		81ED87F320C58EA00086D44F /* ChooseTheFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTheFrame.swift; sourceTree = "<group>"; };
+		81ED87F520C5CC370086D44F /* pickPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickPhotos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				81CD3A86209C4E8E00BE21AA /* AppDelegate.swift */,
 				81CD3A88209C4E8E00BE21AA /* ViewController.swift */,
 				81CD3A8A209C4E8E00BE21AA /* Main.storyboard */,
+				81ED87F520C5CC370086D44F /* pickPhotos.swift */,
+				81ED87F320C58EA00086D44F /* ChooseTheFrame.swift */,
 				81326DAB20AEC03E0088152F /* PreviewController.swift */,
 				81DF3A1B20A2E10C009FCEB7 /* fontovi.swift */,
 				81DF3A1920A2DDC4009FCEB7 /* PreviewAndEdit2.swift */,
@@ -156,6 +162,8 @@
 				81DF3A1E20A2F430009FCEB7 /* memeMaker1.swift in Sources */,
 				81DF3A2020A2FF4A009FCEB7 /* memeMaker2.swift in Sources */,
 				81DF3A1A20A2DDC4009FCEB7 /* PreviewAndEdit2.swift in Sources */,
+				81ED87F420C58EA00086D44F /* ChooseTheFrame.swift in Sources */,
+				81ED87F620C5CC370086D44F /* pickPhotos.swift in Sources */,
 				81CD3A87209C4E8E00BE21AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
