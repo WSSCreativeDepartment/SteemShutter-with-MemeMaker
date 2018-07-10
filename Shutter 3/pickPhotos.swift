@@ -192,7 +192,7 @@ class pickPhotos: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             messageView.isHidden = false
             messageLabel.isHidden = false
             messageButton.isHidden = false
-        }
+        } else {
         
         //First let's call the resizeImge function to resize the picked photo to fit the frame
         // Same is for the next four buttons
@@ -209,6 +209,7 @@ class pickPhotos: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         // Now, let's hide those "helpful images"
         bckView.isHidden = true
         frameImageView.isHidden = true
+        }
 
         
     }
