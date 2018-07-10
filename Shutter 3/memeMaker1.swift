@@ -10,12 +10,19 @@ import UIKit
 
 class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UINavigationControllerDelegate {
     
+    // Button outlets: back button and two buttons for choosing the image. First is for choosing an image at the begining, second for changing the image
+    
+    
     @IBOutlet weak var backBtn3: UIButton!
     @IBOutlet weak var chooseTheImage: UIButton!
     @IBOutlet weak var choseimage2: UIButton!
     
+    // next button - button to proceed to see the meme
     
     @IBOutlet weak var nextBtn: UIButton!
+    
+    
+    // when you pick an image, it appears in this image view. Then you haveto choose the frame to place it
     
     @IBOutlet weak var pickedImage: UIImageView!
     
@@ -59,6 +66,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     
     
     // Colors buttons
+    // collors are for meme text
     
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
@@ -112,6 +120,7 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     }
     
     // Pulling signature text from NSUserDefaults
+    // The signature is saved inside the app untill you change it
     
     override func viewDidAppear(_ animated: Bool) {
         if let x = UserDefaults.standard.object(forKey: "myName") as? String {
@@ -125,6 +134,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     }
     
     // Functions for pickerView
+    // The list of fonts is in this picker
+    
+    // Choose only 1 font
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -137,6 +149,8 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return fontos[row]
     }
+    
+    // setting the chosen font for the top and bottom meme text
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         labelFont = UIFont(name: fontos[row], size: 28)
@@ -178,6 +192,9 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     
     func textToImage2(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = allColor
+        
+        
+        // Stroke is the OUTLINE of the text
         let strokeColor = UIColor.black
         
         let fname = gnatureLabel.font.fontName
@@ -411,6 +428,8 @@ class memeMaker1: UIViewController, UITextFieldDelegate, UIImagePickerController
     // color buttons actions
     
     @IBAction func pinkAction(_ sender: Any) {
+        
+        // setting the chosen color for top meme text, bottom meme text and the signatre text
         
         allColor = pinkButton.backgroundColor
         topTextField.textColor = pinkButton.backgroundColor

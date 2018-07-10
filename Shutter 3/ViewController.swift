@@ -39,13 +39,17 @@ class ViewController: UIViewController {
     var currentCamera: AVCaptureDevice?
     var flashMode = AVCaptureDevice.FlashMode.off
     
-    //
+    // Very helpful outlets to fetch the signature
+    
+    
     @IBOutlet weak var names: UILabel!
-    
-    var image: UIImage?
-    
     var textStr: String?
     var theFont: UIFont?
+    
+    // image to send to previewController
+    var image: UIImage?
+    
+   
     
 
     var focusPoint: CGPoint?
@@ -55,6 +59,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // calling the functions
         
         setupCaptureSession()
         setupDevice()
